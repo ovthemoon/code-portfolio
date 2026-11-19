@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>LatestMajor</RollForward>
+    <LangVersion>9.0</LangVersion>
+    <RootNamespace>CodePortfolio.Unity.Tests</RootNamespace>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 각 사례 폴더의 Tests/ 아래 .cs만 테스트로 컴파일한다. -->
+    <Compile Include="../*/Tests/*.cs" />
+    <Compile Remove="../**/excerpt/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../src/CodePortfolio.Unity.csproj" />
+  </ItemGroup>
+
+</Project>

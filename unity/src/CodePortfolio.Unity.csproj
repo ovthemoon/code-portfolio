@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>CodePortfolio.Unity</AssemblyName>
+    <RootNamespace>CodePortfolio.Unity</RootNamespace>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 사례 폴더 바로 아래의 .cs만 라이브러리로 컴파일한다. Tests/ 와 excerpt/ 는 포함하지 않는다. -->
+    <Compile Include="../*/*.cs" Exclude="../src/**;../tests/**" />
+    <!-- excerpt/ 는 Unity 의존 발췌라 빌드하지 않는다. -->
+    <Compile Remove="../**/excerpt/**" />
+  </ItemGroup>
+
+</Project>
